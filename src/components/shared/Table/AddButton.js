@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddButton extends Component {
   constructor(props) {
     super(props);
-    this.onAdd=this.onAdd.bind(this);
+
+    this.onAdd = this.onAdd.bind(this);
   }
 
   onAdd(){
@@ -15,7 +17,10 @@ class AddButton extends Component {
       <button onClick={this.onAdd}>Ajouter</button>
     );
   }
+}
 
+AddButton.PropTypes = {
+  onAdd: PropTypes.func
 }
 
 export default AddButton;

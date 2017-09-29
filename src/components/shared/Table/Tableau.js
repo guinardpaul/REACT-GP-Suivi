@@ -24,11 +24,11 @@ class Tableau extends Component {
   render() {
     const tableHeader = this.props.listHeaders.map((item, index) => {
       return <TableHeader header={item} key={index} />
-    })
+    });
 
-    const tableItem = this.props.listBody.map((item, index) => {
-      return <TableBody item={item} key={index} listAttributs={this.props.listAttributs} onDelete={this.handleDelete} onUpdate={this.handleUpdate} />
-    })
+    const tableBody = this.props.listBody.map((item, index) => {
+      return <TableBody item={item} key={index} onDelete={this.handleDelete} onUpdate={this.handleUpdate} />
+    });
 
     return (
       <Table responsive striped hover>
@@ -38,7 +38,7 @@ class Tableau extends Component {
           </tr>
         </thead>
         <tbody>
-          {tableItem}
+          {tableBody}
         </tbody>
       </Table>
     );
@@ -49,7 +49,9 @@ Tableau.prototypes = {
   listHeaders: PropTypes.arrayOf(PropTypes.string),
   listBody: PropTypes.arrayOf(PropTypes.object),
   handleUpdate: PropTypes.func,
-  handleDelete: PropTypes.func
-}
+  handleDelete: PropTypes.func,
+  tableBody: PropTypes.element.isRequired,
+  tableHeader: PropTypes.element.isRequired
+};
 
 export default Tableau;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Tableau from '../shared/Table/Tableau';
+import AddClientForm from './AddClientForm';
 
 const CLIENTS = [
   { nom: 'Toto', prenom: 'toto' },
@@ -15,9 +16,7 @@ class Clients extends Component {
     super(props);
     this.state = {
       clients: [],
-      clientHeader: ['Nom', 'Prénom', 'Actions'],
-      // TODO: A remplacer par attribut de la classe Client définie
-      clientAttributs: ['nom', 'prenom']
+      clientHeader: ['Nom', 'Prénom', 'Actions']
     };
 
     this.handleUpdate = this.handleUpdate.bind(this);
@@ -28,7 +27,7 @@ class Clients extends Component {
     this.setState({
       clients: CLIENTS
     }, () => {
-      console.log(this.state.clients)
+      console.log(this.state.clients);
     });
   }
 
@@ -49,7 +48,8 @@ class Clients extends Component {
   render() {
     return (
       <div className="container">
-        <Tableau onUpdate={this.handleUpdate} onDelete={this.handleDelete} listAttributs={this.state.clientAttributs} listHeaders={this.state.clientHeader} listBody={this.state.clients} />
+        <Tableau onUpdate={this.handleUpdate} onDelete={this.handleDelete} listHeaders={this.state.clientHeader} listBody={this.state.clients} />
+        <AddClientForm />
       </div>
     );
   }
@@ -57,8 +57,8 @@ class Clients extends Component {
 }
 
 Clients.PropTypes = {
-  clientHeader: PropTypes.array,
-  clients: PropTypes.array,
+  clientHeader: PropTypes.arrayOf(PropTypes.string),
+  clients: PropTypes.arrayOf(PropTypes.Object),
   componentDidMount: PropTypes.func,
   handleUpdate: PropTypes.func,
   handleDelete: PropTypes.func

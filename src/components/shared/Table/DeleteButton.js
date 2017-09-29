@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class DeleteButton extends Component {
   constructor(props) {
@@ -17,7 +18,11 @@ class DeleteButton extends Component {
       <button onClick={this.onDelete}>Supprimer</button>
     );
   }
+}
 
+DeleteButton.PropTypes = {
+  onDelete: PropTypes.func,
+  item: PropTypes.Object
 }
 
 export default DeleteButton;

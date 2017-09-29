@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ConsulterButton extends Component {
   constructor(props) {
@@ -16,7 +17,11 @@ class ConsulterButton extends Component {
       <button onClick={this.onConsulter}>Consulter</button>
     );
   }
+}
 
+ConsulterButton.PropTypes = {
+  onConsulter: PropTypes.func,
+  item: PropTypes.Object
 }
 
 export default ConsulterButton;

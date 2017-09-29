@@ -27,16 +27,12 @@ class TableBody extends Component {
   }
 
   render() {
-    const tableItems = this.props.listAttributs.map((attr, index) => {
-      //let attribut = this.props.item + '.' + attr;
-      console.log(this.props.item.attr);
-      return <td key={index}>{attr.value}</td>
-      /* return <TableItems item={this.props.item} attribut={attr} key={index} /> */
+    const tableItems = Object.keys(this.props.item).map(key => {
+      return <TableItems key={key} data={this.props.item[key]} />
     });
 
     return (
       <tr>
-        {/* <td>{this.props.item.nom}</td> */}
         {tableItems}
         <td>
           <ConsulterButton item={this.props.item} onConsulter={this.handleConsulter} />
@@ -53,9 +49,8 @@ TableBody.PropTypes = {
   handleDelete: PropTypes.func,
   handleUpdate: PropTypes.func,
   componentDidMount: PropTypes.func,
-  getTableItems: PropTypes.func,
-  attribut: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  item: PropTypes.object
+  item: PropTypes.object,
+  tableItems: PropTypes.element
 }
 
 export default TableBody;

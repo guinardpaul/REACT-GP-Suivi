@@ -15,9 +15,7 @@ class Devis extends Component {
     super(props);
     this.state = {
       devis: [],
-      devisHeader: ['Ref', 'Montant', 'Actions'],
-      // TODO: A remplacer par attribut de la classe Devis définie
-      devisAttributs: ['ref', 'montant']
+      devisHeader: ['Ref', 'Montant', 'Actions']
     };
 
     this.handleUpdate = this.handleUpdate.bind(this);
@@ -49,15 +47,15 @@ class Devis extends Component {
   render() {
     return (
       <div className="container">
-        <Tableau onUpdate={this.handleUpdate} onDelete={this.handleDelete} listAttributs={this.state.devisAttributs} listHeaders={this.state.devisHeader} listBody={this.state.devis} />
+        <Tableau onUpdate={this.handleUpdate} onDelete={this.handleDelete} listHeaders={this.state.devisHeader} listBody={this.state.devis} />
       </div>
     );
   }
 }
 
 Devis.PropTypes = {
-  devisHeader: PropTypes.array,
-  devis: PropTypes.array,
+  devisHeader: PropTypes.arrayOf(PropTypes.string),
+  devis: PropTypes.arrayOf(PropTypes.Object),
   componentDidMount: PropTypes.func,
   handleUpdate: PropTypes.func,
   handleDelete: PropTypes.func
