@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TableItems from './TableItems';
-import ConsulterButton from './ConsulterButton';
-import UpdateButton from './UpdateButton';
-import DeleteButton from './DeleteButton';
+import ConsulterButton from './Button/ConsulterButton';
+import UpdateButton from './Button/UpdateButton';
+import DeleteButton from './Button/DeleteButton';
 
 class TableBody extends Component {
   constructor(props) {
