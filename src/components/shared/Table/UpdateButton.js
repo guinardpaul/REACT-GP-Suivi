@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class UpdateButton extends Component {
   constructor(props) {
     super(props);
-    this.onUpdate=this.onUpdate.bind(this);
+
+    this.onUpdate = this.onUpdate.bind(this);
   }
 
-  onUpdate(){
-    
+  onUpdate() {
+    this.props.onUpdate(this.props.item);
   }
 
   render() {

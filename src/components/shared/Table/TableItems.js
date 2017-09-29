@@ -1,38 +1,18 @@
 import React, { Component } from 'react';
-import ConsulterButton from './ConsulterButton';
-import UpdateButton from './UpdateButton';
-import DeleteButton from './DeleteButton';
+import PropTypes from 'prop-types';
 
 class TableItems extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  handleConsulter(){
-
-  }
-
-  handleUpdate(){
-
-  }
-
-  handleDelete(){
-
-  }
-
   render() {
+    let attribut = this.props.item + '.' + this.props.attribut;
+
     return (
-      <tr>
-        <td>{this.props.item.nom}</td>
-        <td>{this.props.item.prenom}</td>
-        <td><ConsulterButton onConsulter={this.handleConsulter} /></td>
-        <td><UpdateButton onUpdate={this.handleUpdate} /></td>
-        <td><DeleteButton onDelete={this.handleDelete} /></td>
-      </tr>
+      { attribut }
     );
   }
-
 }
+
+TableItems.propTypes = {
+  attribut: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+};
 
 export default TableItems;

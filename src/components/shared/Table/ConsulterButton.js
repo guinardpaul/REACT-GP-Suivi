@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 class ConsulterButton extends Component {
   constructor(props) {
     super(props);
-    this.onConsulter=this.onConsulter.bind(this);
+
+    this.onConsulter = this.onConsulter.bind(this);
   }
 
-  onConsulter(client){
-    console.log('consulter client :' + client);
+  onConsulter() {
+    this.props.onConsulter(this.props.item);
   }
 
   render() {
