@@ -8,8 +8,8 @@ class AddButton extends Component {
     this.onAdd = this.onAdd.bind(this);
   }
 
-  onAdd(){
-
+  onAdd() {
+    this.props.onAddClick();
   }
 
   render() {
