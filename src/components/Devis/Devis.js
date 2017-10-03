@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Tableau from '../shared/Table/Tableau';
+import AddButton from '../shared/Table/Button/AddButton';
 
 const DEVIS = [
   { ref: 'dev01', montant: 1250 },
@@ -15,9 +16,11 @@ class Devis extends Component {
     super(props);
     this.state = {
       devis: [],
-      devisHeader: ['Ref', 'Montant', 'Actions']
+      devisHeader: ['Ref', 'Montant', 'Actions'],
+      addForm: false
     };
 
+    this.displayForm = this.displayForm.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -27,6 +30,12 @@ class Devis extends Component {
       devis: DEVIS
     }, () => {
       console.log(this.state.devis)
+    });
+  }
+
+  displayForm() {
+    this.setState({
+      addForm: true
     });
   }
 
@@ -45,9 +54,17 @@ class Devis extends Component {
   }
 
   render() {
+    let addDevisForm;
+    if (this.state.addForm) {
+      addDevisForm;
+    } else {
+      addDevisForm = <AddButton btnTitle="Ajouter devis" onAddClick={this.displayForm} />;
+    }
+
     return (
       <div className="container">
         <Tableau onUpdate={this.handleUpdate} onDelete={this.handleDelete} listHeaders={this.state.devisHeader} listBody={this.state.devis} />
+        {addDevisForm}
       </div>
     );
   }

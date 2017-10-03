@@ -14,13 +14,14 @@ class AddButton extends Component {
 
   render() {
     return (
-      <button onClick={this.onAdd}>Ajouter</button>
+      <button onClick={this.onAdd}>{this.props.btnTitle}</button>
     );
   }
 }
 
 AddButton.PropTypes = {
-  onAdd: PropTypes.func
+  onAdd: PropTypes.func,
+  btnTitle: PropTypes.string
 }
 
 export default AddButton;

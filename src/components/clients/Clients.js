@@ -59,7 +59,7 @@ class Clients extends Component {
     if (this.state.addForm) {
       addClientForm = <AddClientForm />;
     } else {
-      addClientForm = <AddButton title={"Ajouter"} onAddClick={this.displayForm} />;
+      addClientForm = <AddButton btnTitle="Ajouter client" onAddClick={this.displayForm} />;
     }
 
     return (
